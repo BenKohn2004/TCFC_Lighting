@@ -1,12 +1,54 @@
-The philosophy of the project is to use cheap, of the shelf, easily built and easily repairable components. I want to allow versatility so that the relays can be set up to highlight and work with the natural character that is associated with individual fencing clubs. Standard, commercial repeater lights lack the character and are unable to mesh well with a rooms environment despite being significantly more expensive. The Arduinos and relays can be bought for under $20 and depending on your choice of LED lighting and power supplies, it the entire setup could reasonably run under $100. The trade off is that it will take so care and effort to plan and setup the initial repeater system but with a modicum of planning and persistence, it can reasonably create a unique, custom and affordable enhancement to a fencing club.
+Fencing Scoring Light Relay System
+Overview
+This project provides an affordable, customizable light relay system for fencing scoring machines using off-the-shelf components. Unlike commercial repeater lights—which are often expensive and lack character—this solution is designed to be:
 
+Low-cost: Uses components that can be sourced for under $100 total.
 
-This project uses two ESP8266 Wemos D1 Minis to receive output data from a [Favero scoring machine](https://www.favero.com/en2_fencing_sport_electronic_scoreboard_fencing_signalling_equipment_apparatus_for_foil_sword_epee_sabre-29-17.html) and then relay it to another ESP8266 via wifi which will then activate relays to corresponding to the lights on the fencing box.
+Easily built and repaired: Designed with hobbyist-friendly tools and parts.
 
-Of note, ESP8266 Wemos D1 Mini that is used to parse the output data from the scoring machine must be a specific version, specifically it must use the [CH340 chip](https://www.aliexpress.us/item/3256806703939501.html). There are other ways to work around this, but using this specific chipset is the easiest and most straightforward. 
+Versatile: Allows creative freedom to match the aesthetic and spirit of your fencing club.
 
-The electrical connections can be seen on [Schematic_Favero_Parser_and_Receiver](Schematic_Favero_Parser_and_Receiver.pdf). The code for the Transmitter was compiled on the Arduino IDE with the parser code being [8266_Parser_and_Transmitter_Faster_Retransmit_TCFC](8266_Parser_and_Transmitter_Faster_Retransmit_TCFC) and the receiver code being [8266_Receiver_Strip_Lights_Four_Relay](8266_Receiver_Strip_Lights_Four_Relay).
+By investing a little time and care into setup, you can create a distinctive and functional enhancement for your fencing environment.
 
+Project Summary
+Two ESP8266 Wemos D1 Mini boards are used to interpret and relay scoring data:
 
-The size of the Favero data output is [RJ11] (https://www.aliexpress.us/item/3256807761034393.html) and a [100 ohm resistor] (https://www.aliexpress.us/item/3256806360281394.html) is required between the ground of the Wemos board and the ground pin for the RJ11 connections. The outside and inside connections for the RJ11 are actually connected within the Favero scoring machine, so flipping the wires upside down by accident, should not cause any noticeable affect on the operation.
+Transmitter ESP8266: Reads output from a Favero scoring machine and sends it via Wi-Fi.
+
+Receiver ESP8266: Receives data and activates relays to power lights corresponding to the scoring signals.
+
+This setup is designed to be simple, functional, and adaptable to a variety of LED lights and power supplies.
+
+Hardware Requirements
+2x Wemos D1 Mini ESP8266
+
+⚠️ Important: The board parsing the scoring machine output must use a CH340 chip. Other USB-to-serial chips may not work reliably with this setup.
+
+4-Channel Relay Module(https://www.aliexpress.us/item/2261799814354583.html)
+
+RJ11 Cable for connecting to the Favero output
+RJ11 example
+
+100Ω Resistor between Wemos ground and RJ11 ground pin
+Resistor example
+
+LEDs and power supplies (user's choice based on setup needs)
+
+Note: The Favero machine internally connects the outer and inner RJ11 pins. Accidental wire flipping should not affect performance.
+
+Schematics & Code
+Wiring Diagram: Schematic_Favero_Parser_and_Receiver.pdf
+
+Transmitter Code:
+8266_Parser_and_Transmitter_Faster_Retransmit_TCFC
+(Compiled using Arduino IDE)
+
+Receiver Code:
+8266_Receiver_Strip_Lights_Four_Relay
+(Compiled using Arduino IDE)
+
+Philosophy
+This system was created to be a low-cost, character-rich alternative to sterile commercial solutions. By using common components and open designs, clubs can create repeater lights that reflect their unique identity—whether that means stylish LED strips, themed enclosures, or creative mounting.
+
+With thoughtful planning and a small budget, this setup can bring professional-quality functionality to grassroots fencing spaces.
 
