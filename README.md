@@ -34,6 +34,7 @@ This setup is designed to be simple, functional, and adaptable to a variety of L
 - **100Ω Resistor** between Wemos ground and RJ11 ground pin  
   [Resistor example](https://www.aliexpress.us/item/3256806360281394.html)
 - LEDs and power supplies (user's choice based on setup needs)
+- [LED Strip Example](https://www.aliexpress.us/item/3256806730011319.html)
 
 > **Note**: The Favero machine internally connects the outer and inner RJ11 pins. Accidental wire flipping should not affect performance.
 
